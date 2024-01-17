@@ -62,12 +62,14 @@ public class StringPractice {
             else return false;
         }
         public String removeTag(String s, String a){
-            int b=s.indexOf(">");
-            int c=s.indexOf(">",b+1);
-            String d="<"+a+">";
-            String e="<"+"/"+a+">";
-            String f=s.substring(0,b);
-            String g=s.substring(c);
+            int b=s.indexOf("<"+a+">");
+            int c=s.indexOf("<"+"/"+a+">");
+            int d=a.length();
+            if(b==-1||c==-1){
+            return s;}
+            if(b>c) return s;
+            String e=s.substring(d+2+b,c);
+            return e;
             
 
 
