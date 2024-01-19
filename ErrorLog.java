@@ -5,7 +5,10 @@ public class ErrorLog {
 	
 	/** Precondition: message is a valid Error log entry */
 	public ErrorLog(String message) {
-		/* part a */machineId=
+		/* part a */
+		int a=message.indexOf(":");
+		machineId=message.substring(0,a);
+		description=message.substring(a+1);
 	}
 
 	/** Returns true if the description in this error log entry
@@ -14,7 +17,16 @@ public class ErrorLog {
 	 */
 	public boolean containsKey(String keyword) {
 		/* part b */
-		return false;   // replace this
+		int a= description.indexOf(keyword+" ");
+		int b= description.indexOf(" "+keyword);
+		if(b!=-1) return true;
+		if(a!=-1) return true;
+		int c= description.indexOf(keyword);
+		String d= description.substring(c+1);
+		int e= c
+		if(e==0) return true;
+
+		return false;
 	}
 	
 	public String getMachineId() { return machineId;}
