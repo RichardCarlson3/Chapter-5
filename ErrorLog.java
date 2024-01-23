@@ -17,17 +17,24 @@ public class ErrorLog {
 	 */
 	public boolean containsKey(String keyword) {
 		/* part b */
-		int a= description.indexOf(keyword+" ");
-		int b= description.indexOf(" "+keyword);
-		if(b!=-1) return true;
-		if(a!=-1) return true;
-		int c= description.indexOf(keyword);
-		String d= description.substring(c+1);
-		int e= c
-		if(e==0) return true;
-
-		return false;
-	}
+	  int a=description.indexOf(keyword);
+            int b=keyword.length();
+            int c=description.length();
+            if(a==-1) return false;
+            if(a==0) return true;
+            
+            if(a+b==c){
+                String t=description.substring(a-1);
+                String t1=t.trim();
+                if(t1.length()+1==t.length()) return true;
+            }
+            else if(a>0){
+                String s=description.substring(a-1,a+b+1);
+                String s1=s.trim();
+                if(s1.length()+2==s.length()) return true;
+            }
+            return false;
+        }
 	
 	public String getMachineId() { return machineId;}
 	public String getDescription() { return description; }
