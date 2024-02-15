@@ -15,6 +15,8 @@ public class SoccerTeam {
 
     }
     public void played(SoccerTeam other, int myScore, int otherScore){
+        goals+=myScore+otherScore;
+        games++;
         if(myScore>otherScore){ 
             wins++;
             other.losses++;
@@ -27,8 +29,6 @@ public class SoccerTeam {
              ties++;
              other.ties++;
         }
-        goals=myScore+otherScore;
-        games++;
     }
     public int points(){
         points=wins*3+ties;
@@ -39,10 +39,17 @@ public class SoccerTeam {
         points=0;
         losses=0;
         ties=0;
+
     }
-    public void startTournament(){
+    public static void startTournament(){
         goals=0;
         games=0;
+    }
+    public static int Games(){
+        return games;
+    }
+    public static int Goals(){
+        return goals;
     }
     public static void main(String[] args){
         SoccerTeam s=new SoccerTeam();
@@ -50,32 +57,36 @@ public class SoccerTeam {
         SoccerTeam s2= new SoccerTeam();
         SoccerTeam s3= new SoccerTeam();
 
-        s.startTournament();
+        startTournament();
         System.out.println("Tournament 1");
-        s.played(s1,9,7);
-        s2.played(s3,5,7);
-        s3.played(s2,5,5);
-        s1.played(s2,6,7);
-        System.out.println("Wins: "+s.wins+"; Losses: "+s.losses+"; Ties: "+s.ties+"; Current Points "+s.currPts());
-        System.out.println("Wins: "+s1.wins+"; Losses: "+s1.losses+"; Ties: "+s1.ties+"; Current Points "+s1.currPts());
-        System.out.println("Wins: "+s2.wins+"; Losses: "+s2.losses+"; Ties: "+s2.ties+"; Current Points "+s2.currPts());
-        System.out.println("Wins: "+s3.wins+"; Losses: "+s3.losses+"; Ties: "+s3.ties+"; Current Points "+s3.currPts());
-        System.out.println("Number of Games: "+getNumGames());
-        System.out.println("Number of Goals: "+getNumGoals());
+        s.played(s1,2,1);
+        s2.played(s3,2,7);
+        s3.played(s2,5,3);
+        s1.played(s2,1,1);
+        System.out.println("Wins: "+s.wins+"; Losses: "+s.losses+"; Ties: "+s.ties+"; Current Points "+s.points());
+        System.out.println("Wins: "+s1.wins+"; Losses: "+s1.losses+"; Ties: "+s1.ties+"; Current Points "+s1.points());
+        System.out.println("Wins: "+s2.wins+"; Losses: "+s2.losses+"; Ties: "+s2.ties+"; Current Points "+s2.points());
+        System.out.println("Wins: "+s3.wins+"; Losses: "+s3.losses+"; Ties: "+s3.ties+"; Current Points "+s3.points());
+        System.out.println("Number of Games: "+Games());
+        System.out.println("Number of Goals: "+Goals());
         s.reset();
+        s1.reset();
+        s2.reset();
+        s3.reset();
         System.out.println();
 
+        startTournament();
         System.out.println("Tournament 2");
-        s.played(s1,3,3);
-        s2.played(s3,1,4);
-        s3.played(s2,6,2);
-        s1.played(s2,4,2);
-        System.out.println("Wins: "+s.wins+"; Losses: "+s.losses+"; Ties: "+s.ties+"; Current Points "+s.currPts());
-        System.out.println("Wins: "+s1.wins+"; Losses: "+s1.losses+"; Ties: "+s1.ties+"; Current Points "+s1.currPts());
-        System.out.println("Wins: "+s2.wins+"; Losses: "+s2.losses+"; Ties: "+s2.ties+"; Current Points "+s2.currPts());
-        System.out.println("Wins: "+s3.wins+"; Losses: "+s3.losses+"; Ties: "+s3.ties+"; Current Points "+s3.currPts());
-        System.out.println("Number of Games: "+games());
-        System.out.println("Number of Goals: "+goals());
+        s.played(s1,0,1);
+        s2.played(s3,5,4);
+        s3.played(s2,2,1);
+        s1.played(s2,3,2);
+        System.out.println("Wins: "+s.wins+"; Losses: "+s.losses+"; Ties: "+s.ties+"; Current Points "+s.points());
+        System.out.println("Wins: "+s1.wins+"; Losses: "+s1.losses+"; Ties: "+s1.ties+"; Current Points "+s1.points());
+        System.out.println("Wins: "+s2.wins+"; Losses: "+s2.losses+"; Ties: "+s2.ties+"; Current Points "+s2.points());
+        System.out.println("Wins: "+s3.wins+"; Losses: "+s3.losses+"; Ties: "+s3.ties+"; Current Points "+s3.points());
+        System.out.println("Number of Games: "+Games());
+        System.out.println("Number of Goals: "+Goals());
     }
 }
 
