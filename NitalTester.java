@@ -10,7 +10,6 @@ public class NitalTester {
      */
     public static boolean hasAllValues(int [] arr1, int[] arr2){
 
-
         for(int i = 0; i < arr1.length; i++){
             boolean found = false;
             for(int j = 0; j < arr2.length && !found; j++){
@@ -20,7 +19,6 @@ public class NitalTester {
         }
         return true;
     }
-
 
     /** Returns true if arr contains any repeated values, false otherwise.
      */
@@ -32,7 +30,6 @@ public class NitalTester {
         }
         return false;
     }
-
 
    
     /* Write a static method getColumn, which returns a one-dimensional
@@ -64,8 +61,6 @@ public class NitalTester {
      */
     public static int [] getColumn(int[][] arr2D, int c){
         int [] result=new int[arr2D[0].length];
-
-
         for(int i=0;i<arr2D[0].length;i++){
             result[i]=arr2D[i][c];
         }

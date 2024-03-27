@@ -30,15 +30,15 @@ public class WordPuzzle {
      */
     public WordPuzzle(boolean [][] blackBoxes){
         puzzle = new Box[blackBoxes.length][blackBoxes[0].length]; 
-        int num = 1;
-        for(int r = 0; r < blackBoxes.length; r++){ 
-            for(int c = 0; c < blackBoxes[0].length; c++){ 
-                if(toBeLabeled(r,c,blackBoxes)){
-                    puzzle[r][c] = new Box(blackBoxes[r][c],num); 
-                    num++; 
+        int a = 1;
+        for(int c = 0; c < blackBoxes.length; c++){ 
+            for(int b = 0; b < blackBoxes[0].length; b++){ 
+                if(toBeLabeled(c,b,blackBoxes)){
+                    puzzle[c][b] = new Box(blackBoxes[c][b],a); 
+                    a++; 
                 }    
                 else{
-                    puzzle[r][c] = new Box(blackBoxes[r][c],0);
+                    puzzle[c][b] = new Box(blackBoxes[c][b],0);
                 }
             }
         }	
